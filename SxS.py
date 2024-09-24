@@ -7,6 +7,7 @@ def speech_to_speech(processor, model, input_audio_file_path, output_lang, outpu
     audio_sample, sample_rate = torchaudio.load(input_audio_file_path)
     audio_sample_array = audio_sample[0].numpy()
     # Now, process it
+    sample_rate= 16000
     audio_inputs = processor(audios=audio_sample_array, sampling_rate=sample_rate, return_tensors="pt")
 
     audio_array_from_audio = model.generate(**audio_inputs, tgt_lang=output_lang)[0].cpu().numpy().squeeze()

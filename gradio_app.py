@@ -99,4 +99,5 @@ if __name__ == "__main__":
     model = SeamlessM4TModel.from_pretrained(r"D:\PROJECT\facebook\hf-seamless-m4t-large")
 
     app = create_app(processor, model)
-    app.launch(share=True)
+    app.launch()
+# share=True

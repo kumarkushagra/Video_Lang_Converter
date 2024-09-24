@@ -6,7 +6,7 @@ def speech_to_text(processor, model, input_audio_file_path, output_lang):
     # Load the audio file
     audio_sample, sample_rate = torchaudio.load(input_audio_file_path)
     audio_sample_array = audio_sample[0].numpy()
-
+    sample_rate = 16000
     # Process the audio, specifying the sampling rate
     audio_inputs = processor(audios=audio_sample_array, sampling_rate=sample_rate, return_tensors="pt")
 
