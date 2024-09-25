@@ -6,7 +6,7 @@ from moviepy.editor import VideoFileClip
 sequence_number = 0  # Global variable to keep track of the sequence number
 
 # Function to process video, extract audio, split into chunks, and return video
-def process_and_extract(video_path, dropdown):
+def process_and_extract(video_path, lang_code):
     global sequence_number
 
     # Save video to a local directory
@@ -50,6 +50,9 @@ def process_and_extract(video_path, dropdown):
         # Increment the sequence number for each chunk
         sequence_number += 1
     
+        # # Now convert each video to another language
+        # convert_audio_clips(lang_code)
+
     # Return the same video path for demonstration
     return target_video_path
 
@@ -59,7 +62,7 @@ with gr.Blocks() as demo:
     
     # Inputs: Video and Dropdown
     video_input = gr.Video(label="Upload a video")
-    dropdown_input = gr.Dropdown(["value 1", "value 2", "value 3"], label="Select a Value")
+    dropdown_input = gr.Dropdown(["Hin"], label="Language")
     
     # Output: Video (returned to user after processing)
     video_output = gr.Video(label="Processed Video Output")
